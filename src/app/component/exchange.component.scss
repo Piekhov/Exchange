@@ -1,0 +1,119 @@
+.container {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    .boxCurrency {
+        width: 300px;
+        height: 200px;
+        background-color: lightgray;
+        display: flex;
+        border-radius: 10px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        .currency {
+            height: 30%;
+            // border: 1px dashed dimgray;
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: space-around;
+            .currencyText {
+                font-size: 30px;
+                // padding-left: 10%;
+                justify-content: center;
+                font-weight: bold;
+                color: rgb(70, 70, 70);
+            }
+            .select {
+                background-color: lightgreen;
+                border: none;
+                border-radius: 7px;
+                font-weight: bold;
+                color: rgb(70, 70, 70);
+                outline: none;
+                .option {
+                    border: none;
+                    font-weight: bold;
+                }
+            }
+        }
+        .text {
+            font-size: 20px;
+            // padding-left: 10%;
+            justify-content: center;
+            font-weight: bold;
+            color: rgb(70, 70, 70);
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 18px;
+            margin-top: 10%;
+            
+        }
+
+        .inputBox {
+            height: 30%;
+            width: 90%;
+            border-radius: 16px;
+            background-color: lightgreen;
+            border: none;
+            padding: 0;
+            outline: none;
+            font-size: 30px;
+            margin-top: 2%;
+            margin-left: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+
+            .input {
+                // height: 30%;
+                width: 100%;
+                // margin-top: 20%;
+                border-radius: 16px;
+                background-color: lightgreen;
+                border: none;
+                padding: 0;
+                outline: none;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 30px;
+                padding-left: 10%;
+                font-weight: bold;
+                color: rgb(70, 70, 70);
+            }
+            .input::placeholder {
+                font-size: 20px;
+                color: darkgray;
+            }
+        }
+    }
+}
+.button {
+   background-color: lightgray;
+   width:97vh;
+   height: 50px;
+   border: none;
+   display: flex;
+   justify-content: center;
+   margin-top: 20px;
+   border-radius: 16px;
+   color: rgb(70, 70, 70);
+   font-size: 30px;
+   font-weight: bold;
+   flex-wrap: wrap;
+   align-content: center;
+   
+}
+.button:hover {
+    background-color: rgb(70, 70, 70);
+    color: white;
+    cursor: pointer;
+}

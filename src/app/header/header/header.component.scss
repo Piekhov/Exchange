@@ -1,0 +1,28 @@
+// .header {
+//     height: 20px;
+//     background-color: darkslategray;
+// }
+.header {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(70, 70, 70);
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: flex-end;
+    .text {
+       
+        font-size: 40px;
+        display: flex;
+        width: 100%;
+    }
+    .Box_CurrentExchangeRate {
+        display: flex;
+        align-items: center;
+        .CurrentExchangeRate {
+            font-size: 20px;
+            color:white;
+            
+        }
+    } 
+}
