@@ -31,8 +31,17 @@ export class ExchangeComponent {
   }
  
   inputHandle(event: any) {
-    let value = event.target.value
-    this.count = value
+    
+        let value = event.target.value
+        this.count = value
+        if (value >= 0 ) {
+          let value = event.target.value
+        this.count = value
+      } else {
+        alert("Будь ласка, введіть значення, яке більше за 0")
+      }
+    
+
   }
   // constructor(private currencyService: CurrencyServise) {}
   // ngOnInit(): void {
