@@ -1,47 +1,36 @@
-
-
 <div class="container">
-    <div class="boxCurrency">
-      <div class="currency">
-        <div class="currencyText">Вибір валюти
-        </div>
-        <select class="select" #c1 id="currjson" (mouseleave)="changebase(c1.value)">
-          <option class="option" value="UAH">UAH</option>
-          <option class="option" value="USD">USD</option>
-          <option class="option" value="EUR">EUR</option>
-        </select>
-        
-      </div>
-      <div class="text">Я маю:</div>
-      <div class="inputBox">
-        <input type="text"
-          class="input"
-          (input)="inputHandle($event)"
-          placeholder="Введіть суму"
-        >
-      </div>
-      
+  <div class="boxCurrency">
+    <div class="currency">
+      <div class="currencyText">Вибір валюти</div>
+      <select class="select" #c1 id="" (mouseleave)="changebase(c1.value)">
+        <option class="option" value="UAH">UAH</option>
+        <option class="option" value="USD">USD</option>
+        <option class="option" value="EUR">EUR</option>
+      </select>
     </div>
-    <div class="boxCurrency">
-      <div class="currency">
-        <div class="currencyText">Вибір валюти</div>
-        <select #c2 id="" class="select" (mouseleave)="changebase2(c2.value)">
-          <option  value="UAH">UAH</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-        </select>
-      </div>
-      <div class="text">Я отримаю:</div>
-      <div class="inputBox">
-        <div class="input">{{result}}</div>
-      </div>
+    <div class="text">Я маю:</div>
+    <div class="inputBox">
+      <input
+        type="text"
+        class="input"
+        (input)="inputHandle($event)"
+        placeholder="Введіть суму"
+      />
     </div>
-    <button (click)="convert()" class="button">Розрахувати</button>
-    <!-- Currency:<input type="text" [(ngModel)]="currjson">
-    <button (click)="convert()">Search</button>
-    <div *ngIf="currency">
-      <p>{{data[0].buy | number: '1.0-1'}}</p>
-    </div> -->
+  </div>
+  <div class="boxCurrency">
+    <div class="currency">
+      <div class="currencyText">Вибір валюти</div>
+      <select #c2 id="" class="select" (mouseleave)="changebase2(c2.value)">
+        <option value="UAH">UAH</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+    <div class="text">Я отримаю:</div>
+    <div class="inputBox">
+      <div class="input">{{ result }}</div>
+    </div>
+  </div>
+  <button (click)="convert()" class="button">Розрахувати</button>
 </div>
-
-<!-- *ngFor="let exchange of currency" [currency]="exchange" -->
