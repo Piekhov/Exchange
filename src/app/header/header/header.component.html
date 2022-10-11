@@ -6,13 +6,13 @@
       <div style=" margin-right: 30px; margin-top: 2%; color:hotpink;">
         <span style="color: white">Курси валют: </span>
             <span> USD </span>
-            <span>{{data[0].buy|number: '1.1-1'}}</span>
+            <span>{{dataHeader[0].rateBuy|number: '1.1-1'}}</span>
             <span> /</span>
-            <span style=" margin-right: 10px;"> {{data[0].sale|number: '1.1-1'}} </span>
+            <span style=" margin-right: 10px;"> {{dataHeader[0].rateSell|number: '1.1-1'}} </span>
             <span> EUR  </span>
-            <span>{{data[1].buy|number: '1.1-1'}}</span>
+            <span>{{dataHeader[1].rateBuy|number: '1.1-1'}}</span>
             <span> /  </span>
-            <span> {{data[1].sale|number: '1.1-1'}}  </span>
+            <span> {{dataHeader[1].rateSell|number: '1.1-1'}}  </span>
             <div></div>
       </div>
     </div>

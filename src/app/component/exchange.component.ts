@@ -13,10 +13,11 @@ export class ExchangeComponent implements OnInit {
   data: any = []
   newData: any = []
   result: any = 0
-  base = 'UAH'
-  base2 = 'UAH'
+  base = '980'
+  base2 = '980'
   count = 0
   result1: any = 0;
+  dataBaseCurr: any = []
 
   changebase(a: string) {
     this.base = a
@@ -38,25 +39,31 @@ export class ExchangeComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').subscribe((data) => {
+    this.http.get("https://api.monobank.ua/bank/currency").subscribe((data) => {
       this.data = data
+      this.dataBaseCurr = [this.data[0], this.data[1]]
 
-      this.data.forEach((element: any) => {
-        if (this.data.hasOwnProperty(element.ccy)) {
-          this.data[element.ccy][element.base_ccy] = element.buy
+      console.log(this.dataBaseCurr);
+      
+      
+
+      this.dataBaseCurr.forEach((element: any) => {
+       
+        if (this.dataBaseCurr.hasOwnProperty(element.currencyCodeA)) {
+          this.dataBaseCurr[element.currencyCodeA][element.currencyCodeB] = element.rateBuy
         }
         else {
-          this.data[element.ccy] = {
-            [element.base_ccy]: element.buy
+          this.dataBaseCurr[element.currencyCodeA] = {
+            [element.currencyCodeB]: element.rateBuy
           }
         }
 
-        if (this.data.hasOwnProperty(element.base_ccy)) {
-          this.data[element.base_ccy][element.ccy] = String(1 / element.sale)
+        if (this.dataBaseCurr.hasOwnProperty(element.currencyCodeB)) {
+          this.dataBaseCurr[element.currencyCodeB][element.currencyCodeA] = String(1 / element.rateSell)
         } 
         else {
-          this.data[element.base_ccy] = {
-            [element.ccy]: String(1 / element.sale)
+          this.dataBaseCurr[element.currencyCodeB] = {
+            [element.currencyCodeA]: String(1 / element.rateSell)
           }
         }
       })
@@ -64,10 +71,10 @@ export class ExchangeComponent implements OnInit {
   }
 
   doubleConvert (cur1: string, cur2: string, count: string): string {
-    for (let i = 0; i < Object.keys(this.data).length; i++) {
-        const iterableCurr = this.data[Object.keys(this.data)[i]];
+    for (let i = 0; i < Object.keys(this.dataBaseCurr).length; i++) {
+        const iterableCurr = this.dataBaseCurr[Object.keys(this.dataBaseCurr)[i]];
         if (iterableCurr.hasOwnProperty(cur1) && iterableCurr.hasOwnProperty(cur2)) {
-          const firstConvert =  +count * +this.data[cur1][Object.keys(this.data)[i]];
+          const firstConvert =  +count * +this.dataBaseCurr[cur1][Object.keys(this.dataBaseCurr)[i]];
           return this.result = ((firstConvert * +iterableCurr[cur2]).toFixed(2));
         }
     }
@@ -76,11 +83,11 @@ export class ExchangeComponent implements OnInit {
   convert() {
     if (this.base === this.base2) return this.result = this.count;
     if (
-      !this.data.hasOwnProperty(this.base) ||
-      !this.data[this.base].hasOwnProperty(this.base2)
+      !this.dataBaseCurr.hasOwnProperty(this.base) ||
+      !this.dataBaseCurr[this.base].hasOwnProperty(this.base2)
     )
     return this.doubleConvert(this.base, this.base2, String(this.count));
-    this.result = (this.count * this.data[this.base][this.base2]).toFixed(2);
+    this.result = (this.count * this.dataBaseCurr[this.base][this.base2]).toFixed(2);
     return this.result;
   }
 }

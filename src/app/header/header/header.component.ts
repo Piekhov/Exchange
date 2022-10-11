@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit} from '@angular/core';
 import { ICurrency } from 'src/app/models/currency';
+import { ExchangeComponent } from '../../component/exchange.component'
 
 
 @Component({
@@ -10,14 +11,24 @@ import { ICurrency } from 'src/app/models/currency';
 })
 export class HeaderComponent implements OnInit{
   @Input() currency! : ICurrency
-  data: any = []
-  date: Date = new Date()
+  dataHeader: any = []
   
-  constructor(private http: HttpClient) {}
+  
+  date: Date = new Date()
+
+
+ 
+  constructor(private http: HttpClient) {
+    
+  }
   ngOnInit(): void {
-    this.http.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').subscribe((data) => {
-        this.data = data
+   
+    this.http.get("https://api.monobank.ua/bank/currency").subscribe((data) => {
+        this.dataHeader = data
+        console.log(this.dataHeader);
+        
       })
+      
   }
   
 }

@@ -11,6 +11,8 @@ export class CurrencyServise {
     constructor(private http: HttpClient) {
     }
     getAll(): Observable <ICurrency[]> {
-       return this.http.get<ICurrency[]>('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+        
+       return this.http.get<ICurrency[]>('https://api.monobank.ua/bank/currency')
+       
     }
 }
