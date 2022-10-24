@@ -10,9 +10,9 @@ import { ICurrency } from "../models/currency";
 export class CurrencyServise {
     constructor(private http: HttpClient) {
     }
-    getAll(): Observable <ICurrency[]> {
+    // getAll(): Observable <ICurrency[]> {
         
-       return this.http.get<ICurrency[]>('https://api.monobank.ua/bank/currency')
+    //    return this.http.get<ICurrency[]>('https://api.monobank.ua/bank/currency')
        
-    }
+    // }
 }
